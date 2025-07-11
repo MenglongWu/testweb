@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> -->
+
+    <title>Data Display</title>
+    <style>
+        .container {
+            margin: 20px;
+        }
+
+        .search-box {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            z-index: 1000;
+        }
+
+        .search-box {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            z-index: 1000;
+        }
+
+
+        .category {
+            margin-bottom: 30px;
+        }
+
+        .category h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .category h2::before {
+            /* content: '🔥'; */
+            margin-right: 8px;
+        }
+
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            /* padding: 15px; */
+            box-sizing: border-box;
+            width: calc(50% - 10px);
+            max-width: 250px;
+            min-width: 150px;
+            /* max-width: calc(10%); */
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .item img {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+
+        .item div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item a {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            max-height: 4.5em;
+            line-height: 1.5em;
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+        .item p {
+            margin: 0;
+            color: #666;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .item:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* @media (max-width: 600px) {
+            .item {
+                width: 100%;
+            }
+        } */
+    </style>
+
+</head>
+
+<body>
+
+    <!-- <section class="container"> -->
+    <input type="text" placeholder="Search..." onkeyup="filterItems(this)" class="search-box">
+    <!-- </section> -->
+    <section class="container">
+        
+        <div class="category">
+
+            <h2>AI</h2>
+            <!-- <br> -->
+            <div class="items">
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://chat.xiaoai.plus/#/">AI聊天自备key</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden">wml</p>
+                        <div class="tooltip">AI聊天自备key</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="category">
+
+            <h2>web tools</h2>
+            <!-- <br> -->
+            <div class="items">
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.shorturl.at">shorturl锻炼接301</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden">url,shorturl</p>
+                        <div class="tooltip">shorturl锻炼接301</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="category">
+
+            <h2>SEO</h2>
+            <!-- <br> -->
+            <div class="items">
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.semrush.com">semrush一站式（没钱买）</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">semrush一站式（没钱买）</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://pro.similarweb.com">similarweb查看域名流量</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">similarweb查看域名流量</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://ahrefs.com/keyword-generator/">ahref查关键词搜索量</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden">key,keyword,generator,生成</p>
+                        <div class="tooltip">ahref查关键词搜索量</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://gtmetrix.com/">gtmetrix</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden">speed,webpage,load,insight</p>
+                        <div class="tooltip">gtmetrix</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="http://www.linkio.com/search-operators-tool/">linkio</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden">blacklink,How to find backlink prospect quickly using Google search operators</p>
+                        <div class="tooltip">linkio</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://developers.google.com/search/blog/2015/04/rolling-out-mobile-friendly-update?hl=en">google search center</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden">paper,google,seo</p>
+                        <div class="tooltip">google search center</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="category">
+
+            <h2>SEO blog comment guide</h2>
+            <!-- <br> -->
+            <div class="items">
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://writtent.com/blog/">writtent</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden">blacklink without register</p>
+                        <div class="tooltip">writtent</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://problogger.com/blog/">problogger</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">problogger</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://imgur.com">imgur</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden">tiktok,blacklink,comment</p>
+                        <div class="tooltip">imgur</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.buzzfeed.com">buzzfeed</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden">post,article,backlink</p>
+                        <div class="tooltip">buzzfeed</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="category">
+
+            <h2>GeekBlog</h2>
+            <!-- <br> -->
+            <div class="items">
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.toutiao.com/c/user/token/MS4wLjABAAAApnED1_dbh9sUKI-MK6kqMGi7O7z3NJ_24jRnwPZr7Gg/">硬核老王的头条主页 - 今日头条(www.toutiao.com)</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">硬核老王的头条主页 - 今日头条(www.toutiao.com)</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://theartofmachinery.com/">The Art of Machinery</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">The Art of Machinery</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="http://kegel.com/">Dan Kegel&#39;s Web Hostel</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Dan Kegel&#39;s Web Hostel</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="http://www.52im.net/thread-568-1-1.html">高性能网络编程(三)：下一个10年，是时候考虑C10M并发问题了-网络编程/专项技术区 - 即时通讯开发者社区!</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">高性能网络编程(三)：下一个10年，是时候考虑C10M并发问题了-网络编程/专项技术区 - 即时通讯开发者社区!</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.halolinux.us/">Halo Linux Services</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Halo Linux Services</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="http://dangerousprototypes.com/blog/">Dangerous Prototypes – Open source hardware projects</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Dangerous Prototypes – Open source hardware projects</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.1024sky.cn/blog/index/10">1024程序员天空</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">1024程序员天空</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.pcsuggest.com/page/5/">PCsuggest - Page 5 of 15 - Simple Computing</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">PCsuggest - Page 5 of 15 - Simple Computing</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="http://manual.loongnix.cn/project/2?p=22">Loongnix桌面.用户手册 - 龙芯开源社区知识库</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Loongnix桌面.用户手册 - 龙芯开源社区知识库</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://0xax.gitbooks.io/linux-insides/content/Booting/linux-bootstrap-5.html">Kernel decompression · Linux Inside</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Kernel decompression · Linux Inside</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://blog.csdn.net/tongxin1101124">(22条消息) 大猫的博客_大、猫_CSDN博客-龙芯</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">(22条消息) 大猫的博客_大、猫_CSDN博客-龙芯</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.geeksforgeeks.org/machine-learning/">Machine Learning - GeeksforGeeks</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Machine Learning - GeeksforGeeks</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://embetronicx.com/">EmbeTronicX Tutorials ⋆ EmbeTronicX</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">EmbeTronicX Tutorials ⋆ EmbeTronicX</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://news.ycombinator.com/news">Hacker News</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Hacker News</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://github.com/Jackpopc/CS-Books-Store">GitHub - Jackpopc/CS-Books-Store: 你想要的计算机经典书籍，这里都有！</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">GitHub - Jackpopc/CS-Books-Store: 你想要的计算机经典书籍，这里都有！</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.unf.edu/public/cop4610/ree/Notes/PPT/PPT8E/">William Stallings博士PPT</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">William Stallings博士PPT</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://nandgame.com/">NandGame - Build a computer from scratch.</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">NandGame - Build a computer from scratch.</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://winddoing.github.io/">Winddoing&#39;s Notes</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Winddoing&#39;s Notes</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://jvns.ca/">Julia Evans</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Julia Evans</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.tutorialsdaddy.com/courses/linux-device-driver/">Linux Device Drivers Tutorials – TutorialsDaddy</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Linux Device Drivers Tutorials – TutorialsDaddy</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.zhihu.com/question/406294650">(7 条消息) 有没有好的开源的类似路由器命令行界面的开源项目? - 知乎</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">(7 条消息) 有没有好的开源的类似路由器命令行界面的开源项目? - 知乎</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.w3cschool.cn/timlc/timlc-ol3e24yp.html">Linux 千万级PV规模高性能高并发网站架构_w3cschool</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Linux 千万级PV规模高性能高并发网站架构_w3cschool</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="category">
+
+            <h2>Cloud</h2>
+            <!-- <br> -->
+            <div class="items">
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.namesilo.com/">Domain | NameSilo</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Domain | NameSilo</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.cloudserver.net/">CloudServer</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">CloudServer</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://ishosting.com/en/vps/_803_3m?panel=isp---null&amp;admin=free">VPS Lite - Linux NVMe | Hong Kong | is*hosting</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">VPS Lite - Linux NVMe | Hong Kong | is*hosting</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://viewdns.info/">ViewDNS.info - Your one source for DNS related tools!</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">ViewDNS.info - Your one source for DNS related tools!</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.racknerd.com/">RackNerd - Introducing Infrastructure Stability</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">RackNerd - Introducing Infrastructure Stability</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://app.cloudcone.com/">Login — CLOUDCONE</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Login — CLOUDCONE</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://kejilion.pro/index.php/topVPS/#cc">一个博主推荐的</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">一个博主推荐的</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="category">
+
+            <h2>社区</h2>
+            <!-- <br> -->
+            <div class="items">
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://news.ycombinator.com/">界面丑陋内容舒适 Hacker News</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">界面丑陋内容舒适 Hacker News</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://dev.to/">主要是web前端社区 DEV Community</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">主要是web前端社区 DEV Community</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://hackernoon.com/">Hacker Noon很多故事</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Hacker Noon很多故事</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.indiehackers.com/">创业分享Indie Hackers: Work Together to Build Profitable Online Businesses</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">创业分享Indie Hackers: Work Together to Build Profitable Online Businesses</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://thehackernews.com/">新闻很杂The Hacker News | #1 Trusted Cybersecurity News Site</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">新闻很杂The Hacker News | #1 Trusted Cybersecurity News Site</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://techcrunch.com/category/artificial-intelligence/">Yahoo旗下社区</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Yahoo旗下社区</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://fedoramagazine.org/">Fedora Magazine - Guides</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Fedora Magazine - Guides</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://towardsdatascience.com/?gi=45e24b8a1409">大数据Towards Data Science</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">大数据Towards Data Science</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://uxdesign.cc/?gi=b4973d4f61e4">艺术UX Collective</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">艺术UX Collective</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://medium.com/">五花八门Medium – Where good ideas find you.</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">五花八门Medium – Where good ideas find you.</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://opensource.com/">Opensource.com | Opensource.com</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Opensource.com | Opensource.com</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.lifewire.com/home-networking-4781492">Home Networking How-Tos</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Home Networking How-Tos</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://plus.maths.org/content/">plus.maths.org |</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">plus.maths.org |</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://frameboxxindore.com/linux">Linux Archives - OS Today</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Linux Archives - OS Today</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://wild.maths.org/">Wild Maths - explore</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Wild Maths - explore</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.britannica.com/on-this-day">On This Day - What Happened Today In History | Britannica</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">On This Day - What Happened Today In History | Britannica</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.quantamagazine.org/computer-science/">Computer Science | Quanta Magazine</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Computer Science | Quanta Magazine</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.quantamagazine.org/">Science and Math News | Quanta Magazine</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">Science and Math News | Quanta Magazine</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="category">
+
+            <h2>zlibrary</h2>
+            <!-- <br> -->
+            <div class="items">
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://z-lib.id/">zlibrary/8374/read123</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">zlibrary/8374/read123</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://singlelogin.re/">zlibrary 比上面那个还全/8374/read123</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">zlibrary 比上面那个还全/8374/read123</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://z-lib.gs/">zlibrary 备份/8374/read123</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">zlibrary 备份/8374/read123</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://zlibrary.st/">zlibrary 实时更新候选地址</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">zlibrary 实时更新候选地址</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://z-library.sk ">zlibrary 2025 -1</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">zlibrary 2025 -1</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://z-lib.fm">zlibrary 2025 -2</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">zlibrary 2025 -2</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://es.1lib.sk">zlibrary 2025 -3</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">zlibrary 2025 -3</div>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://it.1lib.sk">zlibrary 2025 -4</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">zlibrary 2025 -4</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="category">
+
+            <h2>paper</h2>
+            <!-- <br> -->
+            <div class="items">
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://www.jos.org.cn/">软件学报</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden"></p>
+                        <div class="tooltip">软件学报</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="category">
+
+            <h2>game</h2>
+            <!-- <br> -->
+            <div class="items">
+                
+                <div class="item">
+                    <img src="#" alt="icon">
+                    <div>
+                        <a href="https://unblocked-games.s3.amazonaws.com/3d/index.html">unlocked game</a>
+                        <!-- <p>这里是描述信息。</p> -->
+                        <p class="hidden">game,3d,2d,pixel</p>
+                        <div class="tooltip">unlocked game</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </section>
+
+
+</body>
+
+<script>
+    function filterItems(input) {
+        const filter = input.value.toLowerCase();
+        const categories = document.querySelectorAll('.category');
+
+        categories.forEach(category => {
+            const categoryName = category.querySelector('h2').textContent.toLowerCase();
+            const items = category.querySelectorAll('.item');
+            let categoryVisible = false;
+
+            items.forEach(item => {
+                const name = item.querySelector('a').textContent.toLowerCase();
+                const brief = item.querySelector('p').textContent.toLowerCase();
+
+                if (name.includes(filter) || brief.includes(filter) || categoryName.includes(filter)) {
+                    item.style.display = '';
+                    categoryVisible = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            if (categoryVisible || categoryName.includes(filter)) {
+                category.style.display = '';
+            } else {
+                category.style.display = 'none';
+            }
+        });
+    }
+    window.onload = function () {
+        const items = document.querySelectorAll('.item');
+
+        items.forEach(function (item) {
+            // 获取当前 item 中的 <img> 和 <a>
+            const img = item.querySelector('img');
+            const link = item.querySelector('a');
+
+            if (link) {
+                const url = new URL(link.href);  // 使用 URL API 获取完整的 URL
+                const domain = url.hostname;  // 解析出域名
+
+                // 构造 favicon 的 URL
+                const faviconUrl = `http://${domain}/favicon.ico`;
+
+                // 更新 <img> 的 src 为对应的 favicon.ico
+                img.src = faviconUrl;
+            }
+        });
+    }
+</script>
+
+</html>
