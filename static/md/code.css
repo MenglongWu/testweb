@@ -1,0 +1,116 @@
+.codehilite {
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    padding: 1em;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 1em;
+    line-height: 1em;
+    overflow-x: auto;
+
+}
+
+
+/* diff*/
+.codehilite .gh {
+    color: gray;
+}
+
+/* Diff header (git) */
+.codehilite .gu {
+    color: gray;
+}
+
+/* Line numbers/range */
+.codehilite .gd {
+    color: red;
+    /* background-color: #ffecec; */
+}
+
+/* Deleted lines */
+.codehilite .gi {
+    color: blue;
+    /* background-color: #eaffea; */
+}
+
+/* Added lines */
+.codehilite .w {
+    color: #ffffff;
+}
+
+/* Context lines */
+/*end diff*/
+/* bash */
+.codehilite .c1, .codehilite .ch {
+    color: #098658;
+    font-weight: bold;
+}
+
+.codehilite .nv {
+    color: #795e26;
+    font-weight: bold;
+}
+.codehilite .nb {
+    color: red;
+}
+
+/* end bash */
+
+/* c code*/
+.codehilite .cm {
+    color: #098658;
+    font-weight: bold;
+}
+
+.codehilite .k , .codehilite .kt{
+    color: blue;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+
+/* Keywords */
+.codehilite .nc {
+    color: #0000ff;
+}
+
+/* Type names (struct) */
+/* .codehilite .kt {
+    color: #ff0000;
+} */
+
+/* Built-in types (int, char) */
+.codehilite .nf {
+    color:#795e26;
+}
+
+/* Function names */
+.codehilite .mi {
+    color: red;
+}
+
+/* Numbers */
+.codehilite .s {
+    color: red;
+}
+
+/* Strings */
+.codehilite .o {
+    color: #0000ff;
+}
+
+/* Operators */
+.codehilite .n {
+    color: #000000;
+}
+
+/* Variables and identifiers */
+.codehilite .p {
+    color: #000000;
+}
+
+/* Punctuation */
+.codehilite .w {
+    color: 795e26;
+}
+
+/* end c code */

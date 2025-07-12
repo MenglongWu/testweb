@@ -1,0 +1,168 @@
+html body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #333;
+    background-color: #fff;
+    padding: 0 1rem;
+    word-wrap: break-word;
+}
+
+html body > :first-child {
+    margin-top: 0;
+}
+
+/* 标题样式 */
+html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    border-left: 4px solid #d0d0d0;
+    padding-left: 0.6em;
+}
+
+html body h1 {
+    font-size: 1.8em;
+    text-align: center;
+    border: none;
+}
+
+html body h2 { font-size: 1.4em; }
+html body h3 { font-size: 1.2em; }
+html body h4, html body h5, html body h6 {
+    font-size: 1em;
+    color: #555;
+    font-weight: 500;
+    border: none;
+}
+
+/* 链接 */
+a {
+    color: #2c7be5;
+    text-decoration: none;
+}
+a:hover {
+    color: #1a5fb4;
+}
+
+/* 段落和列表 */
+p, ul, ol, dl, blockquote, pre {
+    margin: 1.25em 0;
+}
+
+ul, ol {
+    padding-left: 2em;
+}
+
+blockquote {
+    font-size: 0.95em;
+    color: #666;
+    border-left: 4px solid #ccc;
+    padding-left: 1em;
+    background-color: #f9f9f9;
+    margin: 1.5em 0;
+}
+
+/* 图片 */
+img {
+    display: block;
+    max-width: 100%;
+    margin: 1em auto;
+    border-radius: 6px;
+}
+
+/* 代码 */
+code {
+    font-family: SFMono-Regular, Consolas, monospace;
+    font-size: 0.9em;
+    background: #f5f5f5;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+}
+
+pre {
+    background: #f5f5f5;
+    padding: 1em;
+    overflow-x: auto;
+    font-size: 0.9em;
+    border-radius: 5px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+}
+
+/* 表格 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+}
+
+table th, table td {
+    padding: 0.75em;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* 强调 */
+strong {
+    color: #2c3e50;
+}
+
+/* 删除线 */
+del {
+    color: #888;
+}
+
+/* 按键提示 */
+kbd {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-bottom: 2px solid #bbb;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* 自定义类 */
+.tj, .ref {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.25rem;
+    border-bottom: 2px solid #2caf09;
+    padding-bottom: 0.5rem;
+    font-weight: bold;
+    color: #2caf09;
+}
+
+.ad {
+    margin-top: 2rem;
+    text-align: center;
+    color: #2caf09;
+    text-shadow: 1px 1px #ccc;
+}
+
+key p strong {
+    color: red;
+}
+item p {
+    color: #999;
+}
+item p strong {
+    color: #666;
+}
+
+tj-item1:before {
+    content: " ✤ ";
+    color: #2caf09;
+}
+tj-item2:before {
+    content: " ✤ ";
+    color: red;
+}
+tj-item2 {
+    color: red;
+}
