@@ -1,0 +1,135 @@
+[
+  {
+    "keywords": [],
+    "meta_description": "\u6dfb\u52a0mtdparts\u3001mtdids\u73af\u5883\u53d8\u91cf\uff0c\u4f7f\u5f97mtdparts\u80fd\u591f\u663e\u793a\u5206\u533a\u8868",
+    "tags": [],
+    "title": "\u547d\u4ee4mtdparts\u8d77\u4f5c\u7528",
+    "url": "/blog/imx6/01/2025-01-03-fix-uboot-cmd-mtdparts-enable.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "\u6784\u5efa\u6700\u5c0f\u6c47\u7f16\u4ee3\u7801\u63a7\u5236LED\u706f\uff0c\u7a0b\u5e8f\u5305\u62ecstart.S led.c\uff0c\u6700\u7ec8\u751f\u6210imx\u6587\u4ef6\uff0c\u901a\u8fc7uuu\u6216imx_usb\u4e0b\u8f7d\u5230\u677f\u5b50\u91cc\u3002 \u751f\u6210imx\u9700\u8981DCD\u914d\u7f6e\uff0c\u8be5DCD\u6765\u6e90\u4e8euboot\u751f\u6210\u7684\u4e2d\u95f4\u6587\u4ef6 ./u-boot-dtb.cfgout\uff08\u4ec5\u4f9d\u9760gcc\u9884\u7f16\u8bd1\u5b8f\u5c55\u5f00\uff09\uff0c \u672a\u7f16\u8bd1\u7684DCD\u6587\u4ef6\u6e90\u4e8e ./board/freescale/mx6ullevk/imximage.cfg",
+    "tags": [],
+    "title": "\u5728SRAM\u91cc\u70b9\u4eaeLED\u706f",
+    "url": "/blog/imx6/03/2024-03-29-led-on-sram.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [
+      "\u542f\u52a8"
+    ],
+    "title": "\u68c0\u67e5\u65ad\u8def",
+    "url": "/blog/imx6/03/2025-03-28-dbg-circuit.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "\u5c06\u6700\u5c0f\u7cfb\u7edfled\u903b\u8f91\u6d4b\u8bd5\u7a0b\u5e8f\u653e\u5165uboot,\u7528\u4e8e\u5728\u91cf\u4ea7\u65f6\u5019\u6d4b\u8bd5IO\u529f\u80fd\u662f\u5426\u6b63\u5e38\uff0c\u4f7f\u7528 \u88f8\u673a\u76f8\u540c\u7684\u5934\u6587\u4ef6\uff0c\u8fd9\u6837\u4fee\u6539led.c\u4ee3\u7801\u53ef\u4ee5\u76f4\u63a5\u5728uboot\u4f7f\u7528\uff0c\u53e6\u5916\u53d1\u73b0\u5728uboot\u4e0a\u6267\u884cled\u95ea\u70c1 \u7a0b\u5e8f\u6bd4\u88f8\u673a\u5668\u6765\u5f97\u5feb\uff0c\u5176\u4e2d\u7684\u539f\u56e0\u5305\u62ecuboot\u6253\u5f00\u4e86cache\uff0c\u81f3\u4e8e\u9891\u7387\u662f\u591a\u5c11\u4e0d\u5f97\u800c\u77e5\uff0ccache\u5173\u95ed \u4ee3\u7801\u6bd4\u8f83\u5371\u9669\uff0c\u5173\u95ed\u540e\u5bfc\u81f4\u7a0b\u5e8f\u5d29\u6e83\uff0c\u81f3\u4e8e\u5982\u4f55\u53cb\u5584\u7684\u5173\u95edcache\u8fd8\u4e0d\u5f97\u800c\u77e5\uff0cgpt\u751f\u6210\u7684\u5173\u95edcache \u4ee3\u7801\u53ef\u9760\u6027\u4e0d\u9ad8",
+    "tags": [],
+    "title": "uboot\u663e\u793aLED",
+    "url": "/blog/imx6/03/2025-03-29-uboot-show-led.md"
+  },
+  {
+    "keywords": [
+      "Bomberman II",
+      "NES Bomberman",
+      "Hudson Soft",
+      "classic NES games",
+      "Bomberman series",
+      "action puzzle games",
+      "retro games",
+      "1993 NES games"
+    ],
+    "meta_description": "Bomberman II is a classic action-puzzle game developed by Hudson Soft for the NES. The player controls Bomberman, navigating through mazes while placing bombs to defeat enemies and clear obstacles.",
+    "tags": [
+      "\u8d85\u7ea7\u739b\u4e3d",
+      "\u6587\u6863"
+    ],
+    "title": "\u6d4b\u8bd5\u91ce\u706b\u7684\u4e0a\u7535\u65f6\u5e8f",
+    "url": "/blog/imx6/03/2025-04-03-yehuo-power-up.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "\u5c1d\u8bd5\u7528NXP\u5b98\u65b9\u7684\u5185\u5b58\u914d\u7f6e\u5de5\u5177 I.MX6ULL_DDR3_Script_Aid_V0.01.xlsx \u4fee\u6539\u5185\u5b58\u89c2\u5bdf\u54ea\u4e9b\u5bc4\u5b58\u5668\u662f\u8ddf\u968fEXCEL\u53d8\u5316\u7684",
+    "tags": [],
+    "title": "\u6284\u677f\uff0c\u8c03\u8bd5\u5185\u5b58",
+    "url": "/blog/imx6/05/2025-05-21-ddr-dbg.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "IOT6ULL-F1\u7535\u538b\u6d4b\u8bd5\u70b9",
+    "url": "/blog/imx6/05/2025-05-25-imx6ull-f1-test-point.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "DDR3 0.45mm\u79fb\u690d\u7403\u6210\u529f",
+    "url": "/blog/imx6/05/2025-05-29-bga.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "DDR3\u5185\u5b58\u690d\u7403\u7591\u95ee",
+    "url": "/blog/imx6/05/2025-05-30-bga-issues.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "BGA\u690d\u5165\u7403\u5de5\u827a\u5dee\u5f02",
+    "url": "/blog/imx6/05/2025-05-30-solder-bga-ball.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "DDR3\u72ec\u7acb\u710a\u63a5\u65b9\u6cd5",
+    "url": "/blog/imx6/06/2025-06-03-ddr3l-pass.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "NAND\u710a\u76d8\u6e05\u7406",
+    "url": "/blog/imx6/06/2025-06-05-nand-pad.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "NAND\u53ef\u4ee5\u8bc6\u522b",
+    "url": "/blog/imx6/06/2025-06-12-nand-success.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "\u89e3\u51b3\u7b2c\u4e00\u6b21\u542f\u52a8uboot\u6267\u884cmii\u540e\u5d29\u6e83",
+    "url": "/blog/imx6/06/2025-06-16-uboot-mii-crash.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "\u5c06\u81ea\u5df1\u7684led_ddr.bin\u8f6c\u6362\u6210uImage",
+    "url": "/blog/imx6/06/2025-06-23-build-led-ddr-uImage.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "uboot\u4f20\u9012earlyprintk\u6253\u5f00\u5185\u6838\u8c03\u8bd5",
+    "url": "/blog/imx6/06/2025-06-24-earlyprintk-trace-crash.md"
+  },
+  {
+    "keywords": [],
+    "meta_description": "",
+    "tags": [],
+    "title": "\u7f16\u8bd1IOT6ULL-F1\u9002\u914d\u7684uboot",
+    "url": "/blog/imx6/06/2025-06-25-build-uboot.md"
+  }
+]

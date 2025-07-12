@@ -3,6 +3,7 @@
 <title>测试野火的上电时序</title>
 
 <head>
+    <meta charset="UTF-8">
     <meta name="description" content="Bomberman II is a classic action-puzzle game developed by Hudson Soft for the NES. The player controls Bomberman, navigating through mazes while placing bombs to defeat enemies and clear obstacles.">
     <meta name="keywords" content="[&#39;Bomberman II&#39;, &#39;NES Bomberman&#39;, &#39;Hudson Soft&#39;, &#39;classic NES games&#39;, &#39;Bomberman series&#39;, &#39;action puzzle games&#39;, &#39;retro games&#39;, &#39;1993 NES games&#39;]">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -268,7 +269,7 @@ POR_B是外部复位，处理器还有内部POR复位，
 
 
 
-<link rel="stylesheet" href="/static/md/github-light.css">
+<link rel="stylesheet" href="/static/md/github-light.css.gz">
 <!-- <link rel="stylesheet" href="/static/md/medium.css"> -->
 <link rel="stylesheet" href="/static/md/code.css">
 
@@ -325,7 +326,8 @@ POR_B是外部复位，处理器还有内部POR复位，
         if (!tocContainer) return;
 
         // fetch("/index/blog/core")
-        fetch("/index/blog/imx6")
+        // fetch("/index/blog/imx6")
+        fetch("/index.json")
             .then(response => response.json())
             .then(data => {
                 const currentPath = window.location.pathname;
