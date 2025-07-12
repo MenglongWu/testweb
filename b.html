@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>IOT6ULL-F1电压测试点</title>
+
+<head>
+    <meta name="description" content="">
+    <meta name="keywords" content="[]">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<style>
+    body {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    #logo {
+        padding: 20px;
+    }
+
+    #sidebar {
+        width: 250px;
+        min-width: 250px;
+        height: 100vh;
+        overflow-y: auto;
+        position: sticky;
+        top: 0;
+        background-color: #f8f9fa;
+        padding: 20px;
+        box-sizing: border-box;
+        border-right: 1px solid #e1e4e8;
+    }
+
+
+    #content {
+        flex: 1;
+        /* max-width: 800px; */
+        margin: 0 auto;
+
+
+        max-width: min(800px, calc(90vw - 250px));
+        /* max-width:100%; */
+        /* 避免超出屏幕，考虑 sidebar */
+        padding: 20px;
+        padding-bottom: 200px;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    #content img {
+        max-width: 800%;
+        height: auto;
+    }
+
+
+    #content img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+
+    .toc-item {
+        padding: 0px 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+
+        padding-top: 0px;
+        padding-bottom: 0px;
+        list-style: none;
+        border-radius: 6px;
+        cursor: pointer;
+        /* line-height: 0;  */
+    }
+
+    .toc-item:hover {
+        background-color: #e9ecef;
+    }
+
+    .toc-item.active {
+        background-color: #dee2e6;
+        font-weight: bold;
+    }
+
+
+
+    .toc-item a {
+        display: block;
+        /* padding: 20px; */
+        /* padding-top: 4px; */
+        /* padding-bottom: 10px; */
+        padding: 4px 10px;
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        body {
+            flex-direction: column;
+        }
+
+        #sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+            border-right: none;
+            border-bottom: 1px solid #e1e4e8;
+        }
+
+
+        #content {
+            max-width: 100vw;
+            /* max-width: 100%; */
+            padding-top: 60px;
+        }
+
+
+    }
+
+
+
+    /*  */
+    /* 汉堡按钮 */
+    .menu-button {
+        display: none;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1001;
+        background-color: #dee2e6;
+        color: white;
+        font-size: 24px;
+        padding: 6px 12px;
+        /* padding-left: 20px;
+        padding-right: 20px; */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    /* 移动端样式 */
+    @media (max-width: 768px) {
+        .menu-button {
+            display: block;
+        }
+
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #f8f9fa;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: left 0.3s ease;
+        }
+
+        #sidebar.active {
+            left: 0;
+        }
+
+        #content {
+            padding-top: 60px;
+            /* 给按钮让出位置 */
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const content = document.getElementById("content");
+        if (!content) return; // 确保 #content 存在
+
+        // 获取所有 img 元素（转换为数组，避免动态修改时的遍历问题）
+        const imgs = Array.from(content.getElementsByTagName("img"));
+
+        imgs.forEach(img => {
+            // 跳过已经被包裹的图片（防止重复处理）
+            if (img.parentElement.tagName === "A") return;
+
+            const src = img.getAttribute("src");
+            if (!src) return; // 如果没有 src，跳过
+
+            // 创建 <a> 标签
+            const link = document.createElement("a");
+            link.href = src;
+            link.setAttribute("target", "_blank"); // 在新标签页打开
+            link.setAttribute("rel", "noopener noreferrer"); // 安全优化
+
+            // 用 <a> 包裹 <img>
+            img.parentNode.insertBefore(link, img);
+            link.appendChild(img);
+        });
+    });
+    // mermaid.initialize({ startOnLoad: true });
+</script>
+
+<body>
+
+
+    <button id="menu-toggle" class="menu-button">☰</button>
+    <aside id="sidebar">
+
+        <div id="logo">
+            <a href=/blog/imx6>Home</a>
+
+        </div>
+        <hr>
+
+        <list id="toc-container">
+
+        </list>
+    </aside>
+    <section id="content">
+        <div><h1 id="iot6ull-f1">IOT6ULL-F1电压测试点</h1>
+<blockquote>
+<p>2025-05-25</p>
+</blockquote>
+<h2 id="_1">目录</h2>
+<h2 id="Over_View"> OverView </h2>
+
+<ul>
+<li>
+<p><a href="#top_bottom">所有测试点</a></p>
+</li>
+<li>
+<p><a href="#5v_sys">5V_SYS测试</a></p>
+<ul>
+<li><a href="#VCC_SYS">VCC_SYS测试</a><ul>
+<li><a href="#DCDC_3V3">DCDC_3V3测试</a><ul>
+<li><a href="#DRAM_1V35">DRAM_1V35测试</a></li>
+<li><a href="#VDD_ARM_SOC_IN">VDD_ARM_SOC_IN测试</a></li>
+<li><a href="#DCDC_1V8">DCDC_1V8测试</a></li>
+<li><a href="#VDDA_ADC_3V3">VDDA_ADC_3V3测试</a></li>
+</ul>
+</li>
+<li><a href="#VDD_SNVS_3V3">VDD_SNVS_3V3测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- <h2 id="5V_SYS"> 5V_SYS </h2> -->
+<p><br><br><br></p>
+<h2 id="top_bottom">TOP_BOTTOM所有</h2>
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/top-test.png" /></a>
+<a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/bottom-test.png" /></a></p>
+<p><a href="#Over_View">总揽</a></p>
+<h2 id="5v_sys">5V_SYS</h2>
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/5v_sys_sch.png" /></a></p>
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/5v_sys.png" /></a></p>
+<p><a href="#Over_View">总揽</a></p>
+<p><br><br><br></p>
+<h2 id="VCC_SYS"> VCC_SYS </h2>
+
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/vcc_sys_sch.png" /></a></p>
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/vcc_sys.png" /></a></p>
+<p><a href="#Over_View">总揽</a></p>
+<p><br><br><br></p>
+<h2 id="DCDC_3V3"> DCDC_3V3 </h2>
+
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/dcdc_3v3_sch.png" /></a></p>
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/dcdc_3v3_r5.png" /></a>
+<a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/dcdc_3v3_u4.png" /></a></p>
+<p><a href="#Over_View">总揽</a></p>
+<p><br><br><br></p>
+<h2 id="DRAM_1V35"> DRAM_1V35 </h2>
+
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/dram_1v35_sch.png" /></a>
+<a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/dram_1v35.png" /></a></p>
+<p><a href="#Over_View">总揽</a></p>
+<p><br><br><br></p>
+<h2 id="VDD_ARM_SOC_IN"> VDD_ARM_SOC_IN </h2>
+
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/vdd_arm_soc_in_sch.png" /></a></p>
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/vdd_arm_soc_in_u5.png" /></a>
+<a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/vdd_arm_soc_in_r12.png" /></a></p>
+<h2 id="_2"><a href="#Over_View">总揽</a></h2>
+<p><br><br><br></p>
+<h2 id="DCDC_1V8"> DCDC_1V8 </h2>
+
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/dcdc_1v8_sch.png" /></a>
+<a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/dcdc_1v8.png" /></a></p>
+<h2 id="_3"><a href="#Over_View">总揽</a></h2>
+<p><br><br><br></p>
+<h2 id="VDDA_ADC_3V3"> VDDA_ADC_3V3 </h2>
+
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/vdda_adc_3v3_sch.png" /></a>
+<a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/vdda_adc_3v3.png" /></a></p>
+<p><a href="#Over_View">总揽</a></p>
+<p><br><br><br></p>
+<h2 id="VDD_SNVS_3V3"> VDD_SNVS_3V3 </h2>
+
+<p><a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/vdd_snvs_3v3_sch.png" /></a>
+<a href="#Over_View"><img alt="" src="/static/blog/imx6/history/2025//05/images/vdd_snvs_3v3.png" /></a></p>
+<ul>
+<li><a href="#Over_View">总揽</a></li>
+</ul></div>
+    </section>
+</body>
+
+
+
+
+
+<link rel="stylesheet" href="/static/md/github-light.css.gz">
+<!-- <link rel="stylesheet" href="/static/md/medium.css"> -->
+<link rel="stylesheet" href="/static/md/code.css.gz">
+
+<!-- <script async src="/static/md/tex-mml-chtml.js.gz"></script> -->
+<script>
+    // 当存在 "<p>&&"" 才加载
+    document.addEventListener('DOMContentLoaded', function () {
+        const paragraphs = document.getElementsByTagName('p');
+        let hasMathJaxContent = false;
+
+        for (let p of paragraphs) {
+            if (p.textContent.includes('$$')) {
+                hasMathJaxContent = true;
+                break;
+            }
+        }
+        if (hasMathJaxContent) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = '/static/md/tex-mml-chtml.js.gz';
+
+            document.head.appendChild(script);
+        }
+    });
+</script>
+
+
+<!-- <script type="text/javascript" async src="/static/md/mermaid.min.js.gz" charset="UTF-8"></script> -->
+<script>
+    // 当存在<div class="mermaid">才加载
+    document.addEventListener('DOMContentLoaded', function () {
+        var mermaidDivs = document.querySelectorAll('div.mermaid');
+        if (mermaidDivs.length > 0) {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            script.src = '/static/md/mermaid.min.js.gz';
+            script.charset = 'UTF-8';
+            document.head.appendChild(script);
+
+            // 可选：加载完成后初始化mermaid
+            script.onload = function () {
+                if (typeof mermaid !== 'undefined') {
+                    mermaid.initialize({ startOnLoad: true });
+                }
+            };
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tocContainer = document.getElementById("toc-container");
+        if (!tocContainer) return;
+
+        // fetch("/index/blog/core")
+        fetch("/index/blog/imx6")
+            .then(response => response.json())
+            .then(data => {
+                const currentPath = window.location.pathname;
+
+                // 1. 先统一生成所有目录项
+                data.forEach(item => {
+                    const li = document.createElement("li");
+                    li.className = "toc-item";
+
+                    const link = document.createElement("a");
+                    link.href = item.url;
+                    // link.innerHTML = `<i>${item.title}</i>`;
+                    link.innerHTML = `${item.title}`;
+                    link.style.textDecoration = "none";
+                    link.style.color = "inherit";
+
+                    li.appendChild(link);
+
+                    tocContainer.appendChild(li);
+                });
+
+                // data.forEach(item => {
+                //     const li = document.createElement("li");
+                //     li.className = "toc-item";
+
+                //     const link = document.createElement("a");
+                //     link.href = item.url;
+                //     link.innerHTML = `${item.title}`;
+                //     link.style.textDecoration = "none";
+                //     link.style.color = "inherit";
+                //     // link.style.display = "block"; // 设置为块级元素
+                //     // link.style.width = "100%"; // 使链接宽度为 100%
+                //     link.style.padding = "10px"; // 添加一些内边距以增加点击区域
+
+                //     li.appendChild(link);
+                //     tocContainer.appendChild(li);
+                // });
+
+                // 2. 所有目录加载完毕后，再判断匹配项
+                const tocItems = tocContainer.querySelectorAll("li.toc-item");
+                let matchedItem = null;
+
+                tocItems.forEach(li => {
+                    const a = li.querySelector("a");
+                    if (!a) return;
+
+                    const itemPath = new URL(a.href, window.location.origin).pathname;
+
+                    if (
+                        currentPath === itemPath ||
+                        currentPath.startsWith(itemPath)
+                    ) {
+                        matchedItem = li;
+                    }
+                });
+
+                // // 3. 激活并滚动
+                // if (matchedItem) {
+                //     matchedItem.classList.add("active");
+
+                //     // 将其滚动到容器顶部
+                //     matchedItem.scrollIntoView({
+                //         behavior: "auto",    // 或 "smooth" 平滑滚动
+                //         block: "start",      // 滚到容器顶部
+                //         inline: "nearest"
+                //     });
+                // }
+                // 3. 激活并滚动
+                if (matchedItem) {
+                    matchedItem.classList.add("active");
+
+                    // 将其滚动到侧边栏容器的顶部
+                    const sidebar = document.getElementById("sidebar");
+                    if (sidebar) {
+                        // 计算匹配项相对于侧边栏的顶部位置
+                        const itemTop = matchedItem.offsetTop;
+                        // 滚动侧边栏而不是整个页面
+                        sidebar.scrollTop = itemTop - sidebar.offsetTop;
+                    }
+                }
+            })
+            .catch(error => {
+                console.error("加载目录失败:", error);
+                tocContainer.innerText = "目录加载失败";
+            });
+    });
+</script>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const sidebar = document.getElementById("sidebar");
+
+        toggleBtn.addEventListener("click", function () {
+            sidebar.classList.toggle("active");
+        });
+    });
+</script>
+
+
+<style>
+#content h1:first-of-type {
+  font-size: 2.5rem; /* 更大的字号 */
+  text-align: left;
+  /* color: var(--color-primary);  */
+}
+
+
+    
+    
+</style>
+</html>
+
+</html>
