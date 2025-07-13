@@ -172,9 +172,23 @@
         } */
     </style>
 
+
 </head>
 
 <body>
+
+    <script type="module">
+        import { collectDeviceInfo, sendToLocalServer } from './device-info-collector.js';
+    
+        
+        async function main1() {
+            const deviceInfo = await collectDeviceInfo();
+            await sendToLocalServer(deviceInfo, 'https://8bitgame.net/log');
+        }
+    
+        window.addEventListener('load', main1);
+    </script>
+    
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8VW5WNP" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -968,5 +982,7 @@
         });
     }
 </script>
+
+
 
 </html>
